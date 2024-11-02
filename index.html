@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-  <title>Лекция 8</title>
+  <title>Лекция 6</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="node_modules/@shower/ribbon/styles/styles.css">
@@ -17,12 +17,8 @@
 <body class="shower full">
   <header class="caption">
     <h1>Веб-разработка</h1>
-    <p>Лекция 7: JavaScript-1</p>
+    <p>Лекция: JavaScript</p>
   </header>
-
-  <section class="slide clear">
-    <h2 class="shout shrink">Лекция 7</h2>
-  </section>
 
   <section class="slide clear">
     <h2 class="shout">JavaScript</h2>
@@ -902,7 +898,7 @@
       <span><mark>События документа</mark>:</span>
       <ul>
         <li>DOMContentLoaded</li>
-        <li>...</li>
+        <li>load</li>
       </ul>
     </div>
   </section>
@@ -1243,72 +1239,6 @@
     </pre>
   </section>
 
-  <section class="slide">
-    <h2>Ад колбэков (Callback-hell)</h2>
-    <p><b>Callback</b> (колбэк, функция обратного вызова) — функция, котрая вызывается в ответ на совершение некоторого события</p>
-    <div class="columns two">
-      <div class="asinc-example">
-        <div class="asinc-example__wrap">
-          <button class="asinc-example__button cb">Нажми на меня</button>
-        </div>
-      </div>
-      <pre style="font-size: 14px;">
-        <code>setTimeout(() => {</code>
-        <code>  setTimeout(() => {</code>
-        <code>    setTimeout(() => {</code>
-        <code>       setTimeout(() => {</code>
-        <code>          alert('Отработал setTimeout')</code>
-        <code>        }, 1000)</code>
-        <code>      }, 1000)</code>
-        <code>  }, 1000)</code>
-        <code>}, 1000);</code>
-      </pre>
-    </div>
-
-    <script>
-      let buttonCb = document.querySelector('.cb');
-
-      buttonCb.addEventListener('click', () => {
-        setTimeout(() => {
-          setTimeout(() => {
-            setTimeout(() => {
-              setTimeout(() => {
-                alert('Отработал setTimeout')
-              }, 1000)
-            }, 1000)
-          }, 1000)
-        }, 1000);
-      });
-    </script>
-  </section>
-
-  <!-- TODO Промисы -->
-  <section class="slide">
-    <h2>Промисы</h2>
-    <p><b>Промис</b> — это объект-обёртка для асинхронного кода. Он содержит в себе состояние: вначале <b>pending («ожидание»)</b>, затем — одно из: <b>fulfilled («выполнено успешно»)</b> или <b>rejected («выполнено с ошибкой»)</b></p>
-  </section>
-
-  <section class="slide">
-    <h2>Промисы</h2>
-    <pre>
-      <code>function promiseFunc() {</code>
-      <code>  return new Promise(function (resolve, reject) {</code>
-      <code>    <mark>resolve</mark>( /*...*/)</code>
-      <code> })</code>
-      <code>}</code>
-    </pre>
-  </section>
-
-  <section class="slide">
-    <h2>Промисы</h2>
-    <pre>
-      <code>promiseFunc()</code>
-      <code>  .then(a => /*...*/)</code>
-      <code>  .then(b => /*...*/)</code>
-      <code>  .then(c => /*...*/)</code>
-    </pre>
-  </section>
-
   <!-- TODO API -->
   <section class="slide">
     <h2>API</h2>
@@ -1367,30 +1297,6 @@
       <li>DELETE</li>
       <li>PATCH</li>
     </ol>
-  </section>
-
-  <!-- TODO CRUD-операции -->
-  <section class="slide">
-    <h2>CRUD-операции</h2>
-    <ol>
-      <li>Создание</li>
-      <li>Чтение</li>
-      <li>Обновление</li>
-      <li>Удаление</li>
-    </ol>
-    <p>CRUD строят вокруг пользователя или какой-то другой сущности. Для этого создают либо интерфейс с формами, либо HTTP API эндпоинты</p>
-  </section>
-
-  <section class="slide">
-    <h2>CRUD-операции</h2>
-
-    <ul>
-      <li><b>GET</b> (/users) — список пользователей</li>
-      <li><b>GET</b> (/users/1) — информация о пользователе</li>
-      <li><b>POST</b> (/users/add) — добавление пользователя</li>
-      <li><b>PATCH</b> (/users/1) — обновление пользователя</li>
-      <li><b>DELETE</b> (/users/1) — удаление пользователя</li>
-    </ul>
   </section>
 
   <!-- TODO Получение данных с сервера -->
